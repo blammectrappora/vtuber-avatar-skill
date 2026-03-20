@@ -102,3 +102,13 @@ When no description is provided, the skill uses:
 ---
 
 Built with Claude Code · Powered by Neta
+
+## Example Output
+
+```bash
+node vtuberavatar.js "vtuber avatar, anime style, expressive face, colorful hair, streaming overlay ready, clean background, chibi proportions optional, high detail eyes, virtual YouTuber aesthetic"
+```
+
+![Example output](https://oss.talesofai.cn/picture/9a2f7875-59c9-4d9b-a59e-c3ae9f1deafc.webp)
+
+> Prompt: *"vtuber avatar, anime style, expressive face, colorful hair, streaming overlay ready, clean background, chibi proportions optional, high detail eyes, virtual YouTuber aesthetic"*
