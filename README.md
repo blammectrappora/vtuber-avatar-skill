@@ -63,17 +63,18 @@ node vtuberavatar.js "same vtuber, winter outfit" --ref <picture_uuid>
 
 ## Token Setup
 
-This skill requires a `NETA_TOKEN` from the Neta / talesofai platform. The token is resolved in this order:
+Get your Neta API token from the [Neta Open Portal](https://www.neta.art/open/).
 
-1. `--token <your_token>` CLI flag
-2. `NETA_TOKEN` environment variable
-3. `~/.openclaw/workspace/.env` file containing `NETA_TOKEN=...`
-4. `~/developer/clawhouse/.env` file containing `NETA_TOKEN=...`
+Set it via environment variable:
+```bash
+export NETA_TOKEN=your_token_here
+```
 
-**Recommended setup** — add to `~/.openclaw/workspace/.env`:
+Or pass inline:
+```bash
+node vtuberavatar.js "your prompt" --token your_token_here
 ```
-NETA_TOKEN=your_token_here
-```
+
 
 ---
 
@@ -101,14 +102,4 @@ When no description is provided, the skill uses:
 
 ---
 
-Built with Claude Code · Powered by Neta
-
-## Example Output
-
-```bash
-node vtuberavatar.js "vtuber avatar, anime style, expressive face, colorful hair, streaming overlay ready, clean background, chibi proportions optional, high detail eyes, virtual YouTuber aesthetic"
-```
-
-![Example output](https://oss.talesofai.cn/picture/9a2f7875-59c9-4d9b-a59e-c3ae9f1deafc.webp)
-
-> Prompt: *"vtuber avatar, anime style, expressive face, colorful hair, streaming overlay ready, clean background, chibi proportions optional, high detail eyes, virtual YouTuber aesthetic"*
+Built with [Claude Code](https://claude.ai/claude-code) · Powered by [Neta](https://www.neta.art/) · [API Docs](https://www.neta.art/open/)
