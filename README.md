@@ -1,5 +1,7 @@
 # VTuber Avatar Generator
 
+> Powered by the **Neta AI image generation API** (`api.talesofai.com`) — the same service as [neta.art](https://www.neta.art/open/).
+
 Generate professional VTuber avatar images from text descriptions using AI. Powered by the Neta talesofai API, this skill produces anime-style virtual streamer character art — ready for Live2D rigging and streaming.
 
 ---
@@ -90,3 +92,7 @@ When no prompt is provided, the skill uses:
 ## Example Output
 
 ![Generated example](https://oss.talesofai.cn/picture/9a2f7875-59c9-4d9b-a59e-c3ae9f1deafc.webp)
+
+---
+
+This skill requires a Neta API token (free trial available at https://www.neta.art/open/).
