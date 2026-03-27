@@ -1,6 +1,6 @@
-# VTuber Avatar Creator
+# VTuber Avatar Generator
 
-Generate stunning VTuber-style avatar images from a text description using AI. Get back a direct image URL instantly — perfect for virtual YouTubers, streamers, and anime-style character creation.
+Generate professional VTuber avatar images from text descriptions using AI. Powered by the Neta talesofai API, this skill produces anime-style virtual streamer character art — ready for Live2D rigging and streaming.
 
 ---
 
@@ -20,25 +20,32 @@ clawhub install vtuber-avatar-skill
 
 ## Usage
 
+**Basic — uses the default VTuber prompt:**
 ```bash
-# Use the default VTuber prompt
 node vtuberavatar.js
-
-# Custom description
-node vtuberavatar.js "cat girl vtuber, blue twin tails, big expressive eyes, idol outfit"
-
-# Portrait size (default), anime style
-node vtuberavatar.js "fox ears vtuber, warm colors, streaming overlay background"
-
-# Landscape layout
-node vtuberavatar.js "bunny girl vtuber with microphone" --size landscape
-
-# Tall format, great for phone wallpapers or full-body sheets
-node vtuberavatar.js "dragon vtuber, silver hair, fantasy armor" --size tall
-
-# Use a reference image UUID to inherit its style
-node vtuberavatar.js "same vtuber, winter outfit" --ref <picture_uuid>
 ```
+
+**Custom prompt:**
+```bash
+node vtuberavatar.js "fox girl vtuber, silver hair with blue highlights, golden eyes, shrine maiden outfit, cozy lo-fi aesthetic"
+```
+
+**With size option:**
+```bash
+node vtuberavatar.js "cute bunny vtuber, pastel pink hair, oversized hoodie" --size portrait
+```
+
+**With a reference image (for style inheritance):**
+```bash
+node vtuberavatar.js "same character, winter outfit" --ref <picture_uuid>
+```
+
+**Pass token inline:**
+```bash
+node vtuberavatar.js "dragon vtuber, scales, fierce expression" --token YOUR_TOKEN
+```
+
+The script prints a direct image URL to stdout on success.
 
 ---
 
@@ -46,13 +53,13 @@ node vtuberavatar.js "same vtuber, winter outfit" --ref <picture_uuid>
 
 | Flag | Values | Default | Description |
 |------|--------|---------|-------------|
-| `--size` | `portrait`, `landscape`, `square`, `tall` | `portrait` | Output image dimensions |
-| `--token` | string | — | Override API token (see Token Setup below) |
-| `--ref` | picture_uuid | — | Reference image UUID to inherit style/params |
+| `--size` | `square`, `portrait`, `landscape`, `tall` | `square` | Output image dimensions |
+| `--token` | string | — | Override token (see Token Setup) |
+| `--ref` | picture_uuid | — | Inherit style from an existing image |
 
 ### Size dimensions
 
-| Size | Width | Height |
+| Name | Width | Height |
 |------|-------|--------|
 | `square` | 1024 | 1024 |
 | `portrait` | 832 | 1216 |
@@ -61,76 +68,25 @@ node vtuberavatar.js "same vtuber, winter outfit" --ref <picture_uuid>
 
 ---
 
-## Example Output
+## Token Setup
 
-![Generated example](https://oss.talesofai.cn/picture/9a2f7875-59c9-4d9b-a59e-c3ae9f1deafc.webp)
+A `NETA_TOKEN` is required. The script resolves it in this order:
 
----
+1. `--token` CLI flag
+2. `NETA_TOKEN` environment variable
 
-## About Neta
-
-[Neta](https://www.neta.art/) (by TalesofAI) is an AI image and video generation platform with a powerful open API. It uses a **credit-based system (AP — Action Points)** where each image generation costs a small number of credits. Subscriptions are available for heavier usage.
-
-### Register & Get Token
-
-| Region | Sign up | Get API token |
-|--------|---------|---------------|
-| Global | [neta.art](https://www.neta.art/) | [neta.art/open](https://www.neta.art/open/) |
-| China  | [nieta.art](https://app.nieta.art/) | [nieta.art/security](https://app.nieta.art/security) |
-
-New accounts receive free credits to get started. No credit card required to try.
-
-### Pricing
-
-Neta uses a pay-per-generation credit model. View current plans on the [pricing page](https://www.neta.art/pricing).
-
-- **Free tier:** limited credits on signup — enough to test
-- **Subscription:** monthly AP allowance via Stripe
-- **Credit packs:** one-time top-up as needed
-
-### Set up your token
-
+**Recommended — add to your workspace env file:**
 ```bash
-# Step 1 — get your token:
-#   Global: https://www.neta.art/open/
-#   China:  https://app.nieta.art/security
-
-# Step 2 — set it
-export NETA_TOKEN=your_token_here
-
-# Step 3 — run
-node vtuberavatar.js "your prompt"
-```
-
-Or pass it inline:
-```bash
-node vtuberavatar.js "your prompt" --token your_token_here
-```
-
-> **API endpoint:** defaults to `api.talesofai.com` (Open Platform tokens).  
-> China users: set `NETA_API_BASE_URL=https://api.talesofai.com` to use the China endpoint.
-
----
-
-## Output
-
-The script prints a single image URL to stdout on success:
-
-```
-https://cdn.talesofai.cn/.../<image>.webp
-```
-
-Pipe it wherever you need:
-```bash
-node vtuberavatar.js "witch vtuber" | pbcopy       # copy to clipboard (macOS)
-node vtuberavatar.js "witch vtuber" | xclip         # copy to clipboard (Linux)
 ```
 
 ---
 
 ## Default Prompt
 
-When no description is provided, the skill uses:
+When no prompt is provided, the skill uses:
 
-> vtuber avatar, anime style, expressive face, colorful hair, streaming overlay ready, clean background, chibi proportions optional, high detail eyes, virtual YouTuber aesthetic
+> VTuber avatar, anime style, vibrant hair, expressive eyes, live2d ready, clean lines, professional virtual streamer character design, soft pastel background
 
+## Example Output
+
+![Generated example](https://oss.talesofai.cn/picture/9a2f7875-59c9-4d9b-a59e-c3ae9f1deafc.webp)

@@ -1,10 +1,10 @@
 ---
 name: vtuber-avatar-skill
-description: Generate vtuber avatar images using the Neta AI API. Returns a direct image URL.
+description: Generate vtuber avatar creator ai images with AI — powered by Neta talesofai API.
 tools: Bash
 ---
 
-# VTuber Avatar Creator
+# VTuber Avatar Generator
 
 Generate stunning vtuber avatar creator ai images from a text description. Get back a direct image URL instantly.
 
@@ -17,19 +17,8 @@ node vtuberavatar.js "your description here"
 ```
 
 ## Options
-- `--size` — `portrait`, `landscape`, `square`, `tall` (default: `portrait`)
-
-
-## Token
-
-Requires a Neta API token via the `--token` flag.
-- Global: <https://www.neta.art/open/>
-- China:  <https://app.nieta.art/security>
-
-```bash
-export NETA_TOKEN=your_token_here
-node <script> "your prompt" --token "$NETA_TOKEN"
-```
+- `--size` — `portrait`, `landscape`, `square`, `tall` (default: `square`)
+- `--style` — `anime`, `cinematic`, `realistic` (default: `anime`)
 
 ## Install
 ```bash

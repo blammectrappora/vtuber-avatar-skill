@@ -1,8 +1,8 @@
 {
   "name": "vtuber-avatar-skill",
-  "version": "1.0.5",
+  "version": "1.0.0",
   "type": "module",
-  "description": "VTuber Avatar Creator — AI-powered vtuber avatar creator ai",
+  "description": "VTuber Avatar Generator — AI-powered vtuber avatar creator ai",
   "license": "MIT",
   "clawhub": {
     "env": [
