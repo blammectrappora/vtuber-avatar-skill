@@ -72,16 +72,13 @@ The script prints a direct image URL to stdout on success.
 
 ## Token Setup
 
-A `NETA_TOKEN` is required. The script resolves it in this order:
+This skill requires a Neta API token (free trial available at <https://www.neta.art/open/>).
 
-1. `--token` CLI flag
-2. `NETA_TOKEN` environment variable
+Pass it via the `--token` flag:
 
-**Recommended — add to your workspace env file:**
 ```bash
+node <script> "your prompt" --token YOUR_TOKEN
 ```
-
----
 
 ## Default Prompt
 
